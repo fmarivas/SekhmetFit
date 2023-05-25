@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	 <link rel="stylesheet" href="https://raw.githubusercontent.com/fmarivas/SekhmetFit/main/Style">
+	 <script src="SR/codigo.js"></script>
+    <title>Sekhmet Fit - App de Planos Alimentares Personalizados</title>
+  </head>
+  <body>
+
+		<header>
+		  <nav class="navbar">
+			<div class="navbar-container">
+			  <a class="navbar-brand" href="/">SEKHMET FIT</a>
+			  <ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Planos</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+			  </ul>
+			</div>
+		  </nav>
+		</header>
+
+		<!--traduzir a pagina-->
+<div>
+  <select id="language-select">
+    <option value="en">EN</option>
+    <option value="pt">PT</option>
+    <option value="es">ES</option>
+  </select>
+  <button id="tradutor" class="tradutor">Traduzir</button>
+</div>
+
+
+		<!--traduzir a pagina-->
+		
+		
+		
+		<div class="outer-container">
+		  <div class="container">
+			<main>
+			  <section class="form-section">
+				<h2 class="section-title">Cadastro de Usuário</h2>
+				<form class="user-form">
+				  <div class="form-group">
+					<label for="name">Nome:</label>
+					<input type="text" id="name" name="name" placeholder="Digite seu nome completo" />
+				  </div>
+				  <div class="form-group">
+					<label for="age">Idade:</label>
+					<input type="number" id="age" name="age" placeholder="Digite sua idade" />
+				  </div>
+				  <div class="form-group">
+					<label for="weight">Peso:</label>
+					<input type="number" id="weight" name="weight" placeholder="Digite seu peso em kg" />
+				  </div>
+				  <div class="form-group">
+					<label for="height">Altura:</label>
+					<input type="number" id="height" name="height" placeholder="Digite sua altura em cm" />
+				  </div>
+				<div class="form-group">
+				  <label for="gender">Sexo:</label>
+				  <div class="dropdown">
+					<select id="gender" name="gender" class="btn dropdown-toggle">
+					  <option selected disabled>Selecione o sexo</option>
+					  <option>Feminino</option>
+					  <option>Masculino</option>
+					</select>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label for="activity-level">Nível de Atividade:</label>
+				  <div class="dropdown">
+					<select id="activity-level" name="activity-level" class="btn dropdown-toggle">
+					  <option selected disabled>Selecione o nível de atividade</option>
+					  <option value="sedentary">Sedentário (pouco ou nenhum exercício + trabalho de escritório)</option>
+					  <option value="lightly-active">Ativo Leve (exercício leve 1-3 vezes por semana)</option>
+					  <option value="moderately-active">Ativo Moderado (exercício moderado 3-5 vezes por semana)</option>
+					  <option value="very-active">Muito Ativo (exercício intenso 6-7 vezes por semana)</option>
+					  <option value="extremely-active">Extremamente Ativo (exercício intenso, trabalho físico pesado, treinamento 2x/dia)</option>
+					</select>
+				  </div>
+				</div>
+
+			  <div class="form-group">
+					<label for="food-intolerance">Intolerância Alimentar:</label>
+					<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="gluten-intolerance" name="food-intolerance" value="gluten" />
+				  <label class="form-check-label" for="gluten-intolerance">Glúten</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="lactose-intolerance" name="food-intolerance" value="lactose" />
+				  <label class="form-check-label" for="lactose-intolerance">Lactose</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="soy-intolerance" name="food-intolerance" value="soy" />
+				  <label class="form-check-label" for="soy-intolerance">Soja</label>
+				</div>
+			  </div>
+			<div class="btn-container">
+			  <button type="submit" class="btn" id="btn-submit">Enviar</button>
+			</div>
+
+
+			</form>
+		  </section>
+		</main>
+		  </div>
+		  
+		  <!--resultado-->
+		<div id="result-container">
+		  <h2 class="title">SEUS RESULTADOS</h2>
+		  <div class="menu">
+			<label for="menu-options">Escolha uma opção:</label>
+			<select id="menu-options" class="select-options">
+			  <option value="maintenance">Manter o peso</option>
+			  <option value="cutting">Cutting</option>
+			  <option value="bulking">Bulking</option>
+			</select>
+		  </div>
+		  
+			<div id="macronutrients-container">
+			  <div id="macronutrients" class="box">
+				<h3 class="subtitle">Macronutrientes</h3>
+				<p id="macronutrient-info" class="info"></p>
+
+				<div id="protein" class="result">
+				  <h4>Proteína</h4>
+				  <p id="protein-result" class="result-value"></p>
+				</div>
+
+				<div id="fat" class="result">
+				  <h4>Gordura</h4>
+				  <p id="fat-result" class="result-value"></p>
+				</div>
+
+				<div id="carbohydrates" class="result">
+				  <h4>Carboidratos</h4>
+				  <p id="carbohydrates-result" class="result-value"></p>
+				</div>
+			  </div>
+			</div>
+
+			<!--area de criacao de dietas-->
+			<button id="create-diet-button" class="create-diet-button" style="display: none;">Criar Dieta</button>
+			<div id="resultado-dieta" class="resultado-dieta" style="border: 2px solid #000;">
+			  <!-- Aqui serão exibidos os resultados da dieta -->
+			</div>
+
+
+			<!--area de criacao de dietas-->
+
+
+
+
+		</div>
+
+
+
+		</div>
+
+</form>
+</html>
